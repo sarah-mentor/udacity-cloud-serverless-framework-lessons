@@ -8,10 +8,38 @@ provider:
   name: aws
   runtime: nodejs8.10
 
+  stage: ${opt:stage, 'dev'}
+  region: ${opt:region, 'us-east-2'}
+
+  environment:
+    GROUPS_TABLE: Groups-${self:provider.stage}
+
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Scan
+      Resource: arn:aws:dynamodb:${self:provider.region}:*:table/${self:provider.environment.GROUPS_TABLE}
+
 functions:
-  hello:
-    handler: handler.hello
+  GetGroups:
+    handler: src/lamda/http/getGroups.handler
     events:
       - http:
           method: get
-          path: hello
+          path: groups
+          cors: true
+
+resources:
+  Resources:
+    GroupsDynamoDBTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        BillingMode: PAY_PER_REQUEST
+        TableName: ${self:provider.environment.GROUPS_TABLE}
+
