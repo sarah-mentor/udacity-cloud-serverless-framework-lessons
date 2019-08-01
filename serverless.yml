@@ -37,7 +37,7 @@ custom:
 
 functions:
   GetGroups:
-    handler: src/lamda/http/getGroups.handler
+    handler: src/lambda/http/getGroups.handler
     events:
       - http:
           method: get
@@ -45,7 +45,7 @@ functions:
           cors: true
 
   CreateGroup:
-    handler: src/lamda/http/createGroup.handler
+    handler: src/lambda/http/createGroup.handler
     events:
       - http:
           method: post
