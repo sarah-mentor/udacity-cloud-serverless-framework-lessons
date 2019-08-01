@@ -1,0 +1,379 @@
+{
+	"info": {
+		"_postman_id": "d13260b4-7802-4a65-aac3-7abf87d2f09b",
+		"name": "Serverless (SAM)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Serverless Framework requests",
+			"item": [
+				{
+					"name": "Serverless framework Get All Groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless Framework Create a group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Trees\",\r\n  \"description\": \"Be leaf it!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless Framework Create a group INVALID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Food\",\r\n  \"description\": 1234\r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless framework Get Images by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/images/1234",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"images",
+								"1234"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless framework Get Images for a Group",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups/1/images/",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups",
+								"1",
+								"images",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless Framework Create an image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"image title\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups/1/images/",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups",
+								"1",
+								"images",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless Framework Create an image INVALID",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups/1/images/",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups",
+								"1",
+								"images",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Direct Lambda Requests",
+			"item": [
+				{
+					"name": "Get all groups",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all groups with pagination",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/groups?limit=2",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create a group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Beverages\",\r\n  \"description\": \"Toast to you!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Options",
+					"request": {
+						"method": "OPTIONS",
+						"header": [],
+						"url": {
+							"raw": "https://{{apiId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{apiId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "3ab84a25-51cf-4783-b528-31aa7784c887",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "259a2dc1-cb20-41fb-baf7-fa9388d10708",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "eb47d83b-090f-4f7d-8191-5be99532a61b",
+			"key": "apiId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "f337aa3b-9703-4c2a-8a15-6e4495579cde",
+			"key": "serverlessAPIId",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
