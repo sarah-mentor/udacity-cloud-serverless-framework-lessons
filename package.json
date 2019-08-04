@@ -7,21 +7,23 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "elasticsearch": "^16.3.0",
+    "elasticsearch": "^15.4.1",
     "http-aws-es": "^6.0.0",
-    "source-map-support": "^0.5.10"
+    "jimp": "^0.6.1",
+    "source-map-support": "^0.5.11",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.17",
     "@types/elasticsearch": "^5.0.32",
-    "@types/node": "^10.12.18",
-    "aws-sdk": "^2.502.0",
+    "@types/node": "^10.14.4",
+    "aws-sdk": "^2.433.0",
     "serverless-aws-documentation": "^1.1.0",
     "serverless-reqvalidator-plugin": "^1.0.3",
     "serverless-webpack": "^5.2.0",
     "ts-loader": "^5.3.3",
-    "typescript": "^3.2.4",
-    "webpack": "^4.29.0"
+    "typescript": "^3.4.1",
+    "webpack": "^4.29.6"
   },
   "author": "The serverless webpack authors (https://github.com/elastic-coders/serverless-webpack)",
   "license": "MIT"
