@@ -66,6 +66,57 @@
 					"response": []
 				},
 				{
+					"name": "Serverless Framework Create a group Authorized",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Trees\",\r\n  \"description\": \"Be leaf it!\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							],
+							"query": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"disabled": true
+								},
+								{
+									"key": "Authorization",
+									"value": "Bearer {{authToken}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Serverless Framework Create a group INVALID",
 					"request": {
 						"method": "POST",
@@ -372,6 +423,12 @@
 		{
 			"id": "f337aa3b-9703-4c2a-8a15-6e4495579cde",
 			"key": "serverlessAPIId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "19651736-486e-4e08-a244-96c04d0779b9",
+			"key": "authToken",
 			"value": "",
 			"type": "string"
 		}
