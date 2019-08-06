@@ -21,6 +21,7 @@ provider:
     IMAGES_S3_BUCKET: serverless-sarah-images-${self:provider.stage}
     SIGNED_URL_EXPIRATION: 300
     THUMBNAILS_S3_BUCKET: serverless-sarah-thumbnail-${self:provider.stage}
+    AUTH_0_SECRET: SECRET CODE GOES HERE -- NOT COMMITTED
 
   iamRoleStatements:
     - Effect: Allow
