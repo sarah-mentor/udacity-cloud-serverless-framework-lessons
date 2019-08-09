@@ -99,18 +99,6 @@
 							"path": [
 								"dev",
 								"groups"
-							],
-							"query": [
-								{
-									"key": "Content-Type",
-									"value": "application/json",
-									"disabled": true
-								},
-								{
-									"key": "Authorization",
-									"value": "Bearer {{authToken}}",
-									"disabled": true
-								}
 							]
 						}
 					},
@@ -215,6 +203,48 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"title\": \"image title\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups/1/images/",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups",
+								"1",
+								"images",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Serverless Framework Create an image Authorized",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Pink Girl\"\r\n}"
 						},
 						"url": {
 							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups/1/images/",
@@ -389,6 +419,34 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Offline Serverless Requests",
+			"item": [
+				{
+					"name": "Serverless framework Get All Groups  -- offline",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{serverlessAPIId}}.execute-api.us-east-2.amazonaws.com/dev/groups",
+							"protocol": "https",
+							"host": [
+								"{{serverlessAPIId}}",
+								"execute-api",
+								"us-east-2",
+								"amazonaws",
+								"com"
+							],
+							"path": [
+								"dev",
+								"groups"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [
@@ -421,13 +479,13 @@
 			"type": "string"
 		},
 		{
-			"id": "f337aa3b-9703-4c2a-8a15-6e4495579cde",
+			"id": "d171515c-5eb4-4a73-9d6f-4a8c438d7fd2",
 			"key": "serverlessAPIId",
 			"value": "",
 			"type": "string"
 		},
 		{
-			"id": "19651736-486e-4e08-a244-96c04d0779b9",
+			"id": "d20d4237-6217-4ea5-b9c4-219094e5321f",
 			"key": "authToken",
 			"value": "",
 			"type": "string"
