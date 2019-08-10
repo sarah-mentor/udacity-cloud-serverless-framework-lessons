@@ -9,6 +9,9 @@ plugins:
   - serverless-dynamodb-local
   - serverless-offline
 
+package: 
+  individually: true
+
 provider:
 
   tracing:
