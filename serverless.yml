@@ -5,6 +5,7 @@ plugins:
   - serverless-webpack
   - serverless-reqvalidator-plugin
   - serverless-aws-documentation
+  - serverless-plugin-canary-deployments
   - serverless-dynamodb-local
   - serverless-offline
 
@@ -25,6 +26,11 @@ provider:
     THUMBNAILS_S3_BUCKET: serverless-sarah-thumbnail-${self:provider.stage}
 
   iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - codedeploy:*
+      Resource:
+        - '*'
     - Effect: Allow
       Action:
         - dynamodb:Scan
@@ -111,7 +117,10 @@ functions:
             description: Create a new group
             requestModels:
               'application/json': GroupRequest
-
+    deploymentSettings:
+      type: Linear10PercentEvery1Minute
+      alias: Live
+  
   GetImages:
     handler: src/lambda/http/getImages.handler
     events:

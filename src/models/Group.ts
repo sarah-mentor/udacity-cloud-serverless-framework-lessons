@@ -3,4 +3,5 @@ export interface Group {
   name: string
   description: string
   userId: string
+  timestamp: string
 }
