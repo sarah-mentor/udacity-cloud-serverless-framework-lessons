@@ -1,9 +1,12 @@
 import { SNSEvent, SNSHandler, S3EventRecord } from 'aws-lambda';
 import 'source-map-support/register';
 import * as AWS from 'aws-sdk';
+import * as AWSXRay from 'aws-xray-sdk';
 import Jimp from 'jimp/es';
 
-const s3 = new AWS.S3();
+const XAWS = AWSXRay.captureAWS(AWS);
+
+const s3 = new XAWS.S3();
 
 const imagesBucketName = process.env.IMAGES_S3_BUCKET;
 const thumbnailBucketName = process.env.THUMBNAILS_S3_BUCKET;

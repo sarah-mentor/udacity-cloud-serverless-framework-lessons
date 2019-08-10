@@ -1,8 +1,10 @@
 import { S3Event, SNSHandler, SNSEvent } from 'aws-lambda';
 import 'source-map-support/register';
 import * as AWS from 'aws-sdk';
+import * as AWSXRay from 'aws-xray-sdk';
+const XAWS = AWSXRay.captureAWS(AWS);
 
-const docClient = new AWS.DynamoDB.DocumentClient();
+const docClient = new XAWS.DynamoDB.DocumentClient();
 
 const connectionsTable = process.env.CONNECTIONS_TABLE;
 const stage = process.env.STAGE;
